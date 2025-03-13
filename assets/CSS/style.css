@@ -1,0 +1,704 @@
+/* Resetting each element to have no margin and padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* this property ensures the padding and border are included in the width and height of the element */
+}
+
+/* Assigning the color palette in the root (html) which will be accessed using variables */
+:root {
+    --color-1: #090a0d;
+    --color-2: #151626;
+    --color-3: #5d6c8c;
+    --color-4: #f2e0dc;
+    --color-5: #d9bacb;
+    --bg-dark: #090a0d;
+    --bg-light: #f2e0dc;
+    --text-dark: #151626;
+    --text-light: #d9bacb;
+    --hover-light: #ff7842;
+}
+
+body {
+    font-family: 'Trebuchet MS', Arial, sans-serif;
+    background-color: var(--bg-dark);
+    color: var(--bg-light);
+}
+
+/* Styling the body of the page */
+.big-bang-body {
+    color: var(--color-4); /* general font color for the entire page */
+    background-color: var(--bg-dark); /* Background color for the body */
+    /* general font family for the entire page */
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+
+    /* Applying Grid layout for the body */
+    display: grid;
+    grid-template-columns: 4fr 1fr; /* 2 columns in 4:1 ratio*/
+    grid-template-rows: repeat(4, auto); /* 5 rows with height dependant on the content */
+    column-gap: 1.25em; /* spacing out between columns*/
+    /* using grid-areas for assigning position of each element */
+    grid-template-areas: 
+    "header header"
+    "title title"
+    "container aside"
+    "footer footer";
+    /* Naming each grid area to assign them to the specified elements */
+}
+
+/* Header of the page  */
+.big-bang-header {
+    grid-area: header; /* place the header in the specified area*/
+    background-color: var(--bg-dark); /* changing background color of the header */
+}
+
+/* Styling the h1 (heading) in the header */
+.big-bang-header h1 {
+    color:var(--color-4); /* font color of the heading text*/
+    text-align: center; /* centering the text in the header */
+    font-size: 2.5em; /* increasing the font size*/
+    font-family: Verdana, Geneva, Tahoma, sans-serif; /* changing the font family for the h1 */
+}
+
+/* Styling the main container holding the content of the webpage */
+.big-bang-container {
+    grid-area: container;
+    /* place the container in the specified area */
+    padding: 10px;
+    /* padding inside the container */
+    line-height: 2em;
+    /* increasing line height to space out the text */
+
+    display: flex;
+    /* flexbox layout to evenly space the content with as much space required for each image and p tag pair */
+    flex-direction: column;
+    /* direction set to column so the content is positioned one below the other */
+}
+
+/* Styling the titles and headings of the container holding text */
+.big-bang-container h1,
+.big-bang-title {
+    color: var(--color-5);
+    /* changing the font color of the heading */
+    text-align: center;
+    /* centering the text */
+    padding: 10px;
+    /* padding inside each heading */
+    border: 2px solid var(--color-5);
+    /* adding border of 2px around the heading with specified color */
+    border-radius: 10px 20px;
+    /* rounding the corners of the border (equivalent to 10px 20px 10px 20px) */
+}
+
+/* Styling the title of the webpage content */
+.big-bang-title {
+    grid-area: title;
+    /* place the title in the specified area */
+    margin: 5px;
+    /* add 5px margin on all sides  */
+}
+
+/* Styling the h3 (subheadings) of the container */
+.big-bang-container h3 {
+    padding: 10px;
+    /* padding inside each subheading */
+    margin: 50px 20px;
+    /* 50px margin on top and bottom; 20px margin on left and right */
+    color: var(--color-5);
+    /* assigning a font color for the subheadings */
+    font-size: 1.5em;
+    /* increasing the font size */
+    border: 2px solid var(--color-5);
+    /* adding border of 2px around the subheadings with specified color */
+    box-shadow: 0 0 25px var(--color-4);
+    /* 0 vertical and horizontal offset, 25px blur-radius for the shadow with specified color */
+    border-radius: 10px 20px;
+    /* rounding the corners of the border (equivalent to 10px 20px 10px 20px) */
+    text-align: center;
+    /* centering the text */
+}
+
+/* Styling the content */
+.big-bang-content {
+    display: flex;
+    /* flexbox to make each img and p element to position beside each other */
+}
+
+/* Styling the paragraphs in the content */
+.big-bang-content p {
+    text-align: justify;
+    /* spacing out text evenly across entire p tag width */
+    padding: 10px;
+    /* padding inside each paragraph */
+    margin: 10px;
+    /* 10px margin on all sides */
+    color: var(--color-2);
+    background-color: var(--color-4);
+    border-radius: 20px;
+}
+
+/* Styling the images in the content */
+.big-bang-content img {
+    width: 400px;
+    /* specifying the width of all images */
+    padding: 5px;
+    /* padding inside each image */
+    border-radius: 20px;
+    /* rounding the corners of the border */
+    box-shadow: 0 0 25px var(--color-4);
+    /* 0 vertical and horizontal offset; 25px blur-radius for shadow with specified color */
+    margin: 10px 0;
+    /* 10px margin on top and bottom, no margin on the sides */
+}
+
+/* Styling the aside (sidebar) */
+.big-bang-aside {
+    grid-area: aside;
+    /* place the aside in the specified area */
+    background-color: var(--color-5);
+    /* changing background color of the aside to be contrasting to main content */
+    padding: 20px;
+    /* padding inside the aside */
+}
+
+/* Styling the heading inside the aside */
+.big-bang-aside h2 {
+    color: var(--color-1);
+    /* assigning a font color for the heading */
+    text-decoration: underline wavy;
+    /* adding a wavy underline to the heading*/
+    font-weight: 800;
+    /* increasing the boldness of the heading */
+    margin: 5px 0;
+    /* 5px margin on top and bottom and 0 on left and right */
+    text-align: center;
+    /* centering the text */
+}
+
+/* Styling the YouTube videos (iframes) */
+.big-bang-aside iframe {
+    margin: 20px 0;
+    /* 20px margin on top and bottom and 0 on left and right */
+    border-radius: 10px;
+    /* rounding the corners of the videos with 10px */
+    width: 300px;
+    /* setting the width of every video to be 300px */
+    height: 150px;
+    /* setting the height of every video to be 150px */
+}
+
+/* Styling the footer */
+.big-bang-footer {
+    grid-area: footer;
+    /* place the footer in the specified area */
+    background-color: var(--bg-dark);
+    /* changing background color of the footer to match the header */
+    text-align: center;
+    /* centering the text */
+    padding: 20px;
+    /* padding of 20px inside the footer */
+}
+
+/* Header and Navigation */
+.header {
+    background-color: var(--bg-dark);
+    color: var(--text-light);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem;
+}
+
+.header h1 {
+    font-size: 1.8rem;
+    font-family: 'Trebuchet MS', Arial, sans-serif;
+}
+
+nav {
+    background-color: var(--bg-dark);
+    color: var(--bg-light);
+}
+
+.logo {
+    font-size: 1.5rem;
+}
+
+ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+ul li {
+    margin-right: 20px;
+}
+
+ul li a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+ul li a:hover {
+    color: var(--hover-light);
+}
+
+.checkbtn {
+    font-size: 30px;
+    color: var(--text-light);
+    cursor: pointer;
+    display: none;
+}
+
+#check {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .checkbtn {
+        display: block;
+    }
+
+    ul {
+        position: fixed;
+        top: 80px;
+        right: -100%;
+        background-color: var(--bg-dark);
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transition: all 0.3s;
+    }
+
+    ul li {
+        margin: 20px 0;
+    }
+
+    ul li a {
+        font-size: 20px;
+    }
+
+    #check:checked~ul {
+        right: 0;
+    }
+}
+
+@media (max-width: 576px) {
+    .header {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1rem;
+    }
+
+    .header h1 {
+        font-size: 1rem;
+        margin-right: 10px;
+    }
+
+    .checkbtn {
+        margin-left: auto;
+    }
+}
+
+/* Main Content */
+.main-content {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    padding: 1rem;
+}
+
+/* Hero Section */
+.hero-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 2rem;
+    text-align: center;
+    padding: 0rem;
+}
+
+.hero-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.hero-container .hero-text h1 {
+    font-size: 3em;
+    font-weight: bold;
+    margin: 0 0 1rem 0;
+}
+
+.hero-container .hero-text p {
+    font-size: 1.4rem;
+    line-height: 1.5;
+}
+
+.hero-container .hero-image img {
+    max-width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+/* Responsive Design */
+/* Devices with max-width of 1200px*/
+@media (max-width: 1200px) {
+    .hero-container .hero-text h1 {
+        font-size: 2.2rem;
+    }
+
+    .menu {
+        gap: 1rem;
+    }
+
+    .galaxy-description {
+        gap: 1.5rem;
+    }
+}
+
+/* Devices with max-width of 992px (Tablets) */
+@media (max-width: 992px) {
+    .hero-section {
+        padding: 1.5rem;
+    }
+
+    .galaxy-description {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .galaxy-description .image {
+        order: -1;
+        /* Place the image above the content */
+        margin-bottom: 1.5rem;
+    }
+
+    .menu {
+        display: none;
+    }
+
+    .hamb {
+        display: block;
+    }
+
+    .galaxy-section h2 {
+        font-size: 1.8rem;
+    }
+
+    .solar-system-section {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .solar-system-section div {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .solar-system-section div .card img {
+        width: 100%;
+        height: 200px;
+        border-radius: 10px;
+        margin-bottom: 1rem;
+    }
+}
+
+/* Devices with max-width of 768px*/
+@media (max-width: 768px) {
+    .header h1 {
+        font-size: 1.2rem;
+    }
+
+    .hero-container .hero-text h1 {
+        font-size: 1.8rem;
+    }
+
+    .hero-container .hero-text p {
+        font-size: 1rem;
+    }
+
+    .galaxy-section {
+        padding: 1.5rem;
+    }
+
+    .galaxy-section h2 {
+        font-size: 1.6rem;
+    }
+
+    .galaxy-section p {
+        font-size: 0.9rem;
+    }
+
+    .solar-system-section {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .solar-system-section div {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .solar-system-section .card img {
+        width: 100%;
+        height: 50px;
+        border-radius: 10px;
+        margin-bottom: 1rem;
+    }
+
+    .solar-system-section div .card img {
+        width: 100%;
+        height: 100px;
+        border-radius: 10px;
+        margin-bottom: 1rem;
+    }
+
+    .astronomy>div {
+        margin: .5em 0 0 0;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .astronomy div img {
+        width: 100%;
+        height: auto;
+        margin-right: 1em;
+        border-radius: 10px;
+    }
+
+    .planet-content {
+        display: block;
+    }
+}
+
+/* Devices with max-width of 576px*/
+@media (max-width: 576px) {
+    .hero-section {
+        padding: 1rem;
+    }
+
+    .hero-container {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .galaxy-description {
+        padding: 1rem;
+    }
+
+    .galaxy-section {
+        padding: 1rem;
+    }
+
+    .hero-container .hero-text h1 {
+        font-size: 1.5rem;
+    }
+
+    .solar-system-section div {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .solar-system-section div .card img {
+        width: 100%;
+        height: 150px;
+        border-radius: 10px;
+        margin-bottom: 1rem;
+    }
+
+    .astronomy>div {
+        margin: .5em 0 0 0;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .astronomy div img {
+        width: 100%;
+        height: auto;
+        margin-right: 1em;
+        border-radius: 10px;
+    }
+
+    .planet-card .planet-content {
+        display: block;
+    }
+
+    .planet-grid .planet-card p {
+        font-size: 1rem;
+        line-height: 1.5;
+    }
+
+    .planet-media {
+        background-color: var(--color-3);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1em;
+        padding: 1em;
+        border-radius: 20px;
+    }
+
+    .planet-media img {
+        min-width: 100%;
+        border-radius: 16px;
+    }
+}
+
+/* Solar System Section */
+.solar-system-section {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    justify-content: center;
+    align-items: stretch;
+    padding: 2rem;
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+    border-radius: 10px;
+}
+
+.solar-system-section div {
+    display: flex;
+    gap: 1em;
+    justify-content: center;
+    align-items: stretch;
+}
+
+.solar-system-section .card {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--bg-dark);
+    color: var(--text-light);
+    border-radius: 10px;
+    padding: 1rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.solar-system-section .card img {
+    width: 100%;
+    height: 200px;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+}
+
+.solar-system-section .card h3 {
+    margin-top: 0.5rem;
+    font-size: 1.2rem;
+    text-decoration: none;
+}
+
+/* Cards for home page */
+.card {
+    text-decoration: none;
+}
+
+.solar-system-section .card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.4);
+}
+
+/* Astronomy section */
+.astronomy {
+    padding: 1rem;
+}
+
+.astronomy>div {
+    margin: .5em 0 0 0;
+    display: flex;
+}
+
+.astronomy img {
+    width: 25%;
+    height: auto;
+    margin-right: 1em;
+    border-radius: 10px;
+}
+
+.astronomy p {
+    margin: .5em 0 0 0;
+    font-size: 1.3em;
+    line-height: 1.2em;
+}
+
+/* Planet Section */
+.planet-section {
+    text-align: center;
+    padding: 2rem 1rem;
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+    border-radius: 20px;
+}
+
+.planet-section h2 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+}
+
+.planet-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 1fr);
+    gap: 2rem;
+    padding: 1rem;
+}
+
+.planet-card {
+    background: var(--bg-dark);
+    color: var(--text-light);
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    padding: 1.5rem;
+    text-align: center;
+}
+
+.planet-content {
+    display: flex;
+}
+
+.planet-card img {
+    max-width: 200px;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+}
+
+.planet-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.planet-card p {
+    font-size: 1.5em;
+    line-height: 1.5;
+}
+
+.planet-media {
+    background-color: var(--color-3);
+    display: flex;
+    align-items: center;
+    gap: 1em;
+    padding: 1em;
+    border-radius: 20px;
+}
+
+.planet-media img {
+    width: 50%;
+    border-radius: 16px;
+}
+
+.planet-youtube {
+    aspect-ratio: 16 / 9;
+    width: 100%;
+    border-radius: 16px;
+}
